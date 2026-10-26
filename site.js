@@ -155,4 +155,70 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
     [].forEach.call(targets, function (el) { el.classList.add('rv'); io.observe(el); });
   }
+
+  /* ---------- 5. 首圖輪播：自動左右滑動、可點箭頭／圓點、可滑動手勢 ---------- */
+  [].forEach.call(d.querySelectorAll('.slider'), function (sl) {
+    var slides = [].slice.call(sl.querySelectorAll('.slide'));
+    var n = slides.length;
+    if (n < 2) return;
+    var box = sl.querySelector('.dots'), cur = 0, busy = false, timer = null, paused = false;
+
+    var dots = slides.map(function (_, i) {
+      var b = d.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', '第 ' + (i + 1) + ' 張');
+      b.addEventListener('click', function () { go(i, i > cur ? 1 : -1); play(); });
+      if (box) box.appendChild(b);
+      return b;
+    });
+    function mark() {
+      dots.forEach(function (b, i) { b.setAttribute('aria-current', i === cur ? 'true' : 'false'); });
+      slides.forEach(function (s, i) { s.setAttribute('aria-hidden', i === cur ? 'false' : 'true'); });
+    }
+    function go(to, dir) {
+      if (busy || to === cur) return;
+      var a = slides[cur], b = slides[to];
+      busy = true;
+      b.style.transition = 'none';                       /* 新的一張先在旁邊待命 */
+      b.style.transform = 'translateX(' + (dir * 100) + '%)';
+      void b.offsetWidth;
+      b.style.transition = '';
+      b.style.transform = 'translateX(0)';               /* 滑進來 */
+      a.style.transform = 'translateX(' + (-dir * 100) + '%)';  /* 舊的滑出去 */
+      cur = to;
+      mark();
+      setTimeout(function () { busy = false; }, 780);
+    }
+    function next() { go((cur + 1) % n, 1); }
+    function prev() { go((cur - 1 + n) % n, -1); }
+    function play() {
+      clearInterval(timer);
+      if (reduce) return;
+      timer = setInterval(function () { if (!paused && !d.hidden) next(); }, 4500);
+    }
+
+    var nb = sl.querySelector('.s-btn.next'), pb = sl.querySelector('.s-btn.prev');
+    if (nb) nb.addEventListener('click', function () { next(); play(); });
+    if (pb) pb.addEventListener('click', function () { prev(); play(); });
+
+    sl.addEventListener('mouseenter', function () { paused = true; });
+    sl.addEventListener('mouseleave', function () { paused = false; });
+    sl.addEventListener('focusin', function () { paused = true; });
+    sl.addEventListener('focusout', function () { paused = false; });
+
+    var x0 = null;
+    sl.addEventListener('pointerdown', function (e) {
+      x0 = (e.target.closest && e.target.closest('.s-btn,.dots')) ? null : e.clientX;
+    });
+    sl.addEventListener('pointerup', function (e) {
+      if (x0 === null) return;
+      var dx = e.clientX - x0;
+      x0 = null;
+      if (Math.abs(dx) > 45) { dx < 0 ? next() : prev(); play(); }
+    });
+    sl.addEventListener('pointercancel', function () { x0 = null; });
+
+    mark();
+    play();
+  });
 })();
