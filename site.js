@@ -11,7 +11,7 @@
 
   /* 瀏覽器頂端顏色，跟著深淺色模式走 */
   var tc = d.querySelector('meta[name="theme-color"]');
-  if (tc) tc.setAttribute('content', window.matchMedia('(prefers-color-scheme: dark)').matches ? '#151112' : '#e9e5e3');
+  if (tc) tc.setAttribute('content', window.matchMedia('(prefers-color-scheme: dark)').matches ? '#151112' : '#f4f1ee');
 
   /* ---------- 1. 選單 ---------- */
   var burger = d.querySelector('.burger');
@@ -140,7 +140,7 @@
   }
 
   if (!reduce && 'IntersectionObserver' in window) {
-    var targets = d.querySelectorAll('.sec-head,.card,.tile,.steps li,.lessons li,.split > *,.cta,.adrow .ad,.sponsors .ad,.chips');
+    var targets = d.querySelectorAll('.sec-head,.card,.tile,.steps li,.lessons li,.split > *,.why-grid > *,.cta,.adrow .ad,.sponsors .ad,.chips');
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (!en.isIntersecting) return;

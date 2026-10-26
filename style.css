@@ -3,7 +3,7 @@
    類名全部沿用舊版，HTML 不用改
    ========================================================= */
 :root{
-  --bg:#e9e5e3;--surface:rgba(255,255,255,.78);--panel:rgba(255,255,255,.9);
+  --bg:#f4f1ee;--surface:rgba(255,255,255,.78);--panel:rgba(255,255,255,.9);
   --ink:#2a2423;--muted:#766c67;--line:rgba(255,255,255,.92);--edge:rgba(72,40,28,.09);
   --accent:#d9400f;--on-accent:#fff;--tint:rgba(255,255,255,.52);
   --b1:#625c5e;--b2:#1c191b;--bt:#fff;               /* 主按鈕：深色漸層 */
@@ -18,7 +18,7 @@
   --r:28px;
   --shadow:0 1px 0 rgba(255,255,255,.95) inset,0 24px 44px -24px rgba(90,45,25,.34),0 3px 8px rgba(90,45,25,.06);
   --shadow-up:0 1px 0 #fff inset,0 36px 56px -26px rgba(90,45,25,.45),0 6px 14px rgba(90,45,25,.08);
-  --sp:clamp(48px,8vw,88px);--gap:clamp(16px,2.5vw,24px);--tab:64px;
+  --sp:clamp(56px,9vw,96px);--gap:clamp(16px,2.5vw,24px);--tab:64px;
 }
 @media (prefers-color-scheme:dark){:root{
   --bg:#151112;--surface:rgba(48,38,39,.78);--panel:rgba(36,28,29,.94);
@@ -35,10 +35,10 @@ body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.75 "Noto San
 body.lock{overflow:hidden}
 /* 背景：固定的柔光漸層＋緩慢飄移的橘色光球 */
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
-  radial-gradient(60vmax 48vmax at -8% -6%,rgba(255,106,61,.28),transparent 62%),
-  radial-gradient(52vmax 44vmax at 108% 28%,rgba(150,138,184,.34),transparent 62%),
-  radial-gradient(56vmax 46vmax at 24% 112%,rgba(255,168,108,.30),transparent 62%)}
-body::after{content:"";position:fixed;z-index:-1;pointer-events:none;width:46vmax;height:46vmax;right:-14vmax;top:-12vmax;border-radius:50%;background:radial-gradient(circle,rgba(255,92,48,.26),transparent 68%);animation:drift 24s ease-in-out infinite alternate}
+  radial-gradient(48vmax 38vmax at -8% -4%,rgba(255,106,61,.20),transparent 62%),
+  radial-gradient(40vmax 34vmax at 108% 32%,rgba(150,138,184,.20),transparent 62%),
+  radial-gradient(46vmax 38vmax at 20% 112%,rgba(255,168,108,.20),transparent 62%)}
+body::after{content:"";position:fixed;z-index:-1;pointer-events:none;width:46vmax;height:46vmax;right:-14vmax;top:-12vmax;border-radius:50%;background:radial-gradient(circle,rgba(255,92,48,.13),transparent 68%);animation:drift 24s ease-in-out infinite alternate}
 @keyframes drift{to{transform:translate3d(-26vmax,26vmax,0) scale(1.18)}}
 a{color:inherit;text-decoration:none}
 a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
@@ -47,7 +47,7 @@ svg{display:block}
 .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
 h1,h2,h3{line-height:1.3;margin:0 0 .5em}
 h1{font-size:clamp(1.9rem,6vw,3.4rem);font-weight:800;letter-spacing:-.01em}
-h2{font-size:clamp(1.4rem,4vw,2rem);font-weight:700}
+h2{font-size:clamp(1.5rem,4.6vw,2.2rem);font-weight:800;letter-spacing:-.015em;line-height:1.25}
 h3{font-size:1.1rem;font-weight:700}
 p{margin:0 0 1em;max-width:62ch}
 .muted{color:var(--muted)}
@@ -309,6 +309,66 @@ footer.site li a{display:inline-block;padding:6px 0;transition:color .2s,transfo
 .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:32px}
 @media (max-width:900px){.fgrid{grid-template-columns:1fr 1fr}.fgrid>:first-child{grid-column:1/-1}}
 .copy{margin-top:36px;font-size:.88rem;opacity:.75}
+
+
+/* =========================================================
+   第二輪優化：為什麼要學／雙引擎／學習路徑／手機版節奏
+   ========================================================= */
+
+/* ---------- 「為什麼要學」：標題 → 圖 → 三個好處（手機）；左文右圖（電腦） ---------- */
+.why-grid{display:grid;gap:26px 64px;grid-template-areas:"head" "media" "perks"}
+.why-head{grid-area:head}
+.why-head p{margin-bottom:0}
+.why-media{grid-area:media;position:relative}
+.why-media .ph.img{aspect-ratio:4/3;border-radius:34px;box-shadow:var(--shadow-up)}
+.why-media .float{position:absolute;left:16px;bottom:16px;z-index:2;max-width:calc(100% - 32px);padding:10px 18px;border-radius:999px;background:var(--panel);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--line);box-shadow:0 1px 0 #fff inset,0 16px 26px -12px rgba(80,30,10,.5);font-weight:700;font-size:.9rem;line-height:1.5}
+.perks{grid-area:perks;list-style:none;margin:0;padding:6px;background:var(--surface);border:1px solid var(--line);border-radius:34px;box-shadow:var(--shadow)}
+.perks li{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:20px 18px}
+.perks li+li{border-top:1px solid var(--edge)}
+.perks .ico{width:52px;height:52px;border-radius:18px;background:linear-gradient(145deg,#ff9a5c,#e8451f);color:#fff;display:grid;place-items:center;box-shadow:0 1px 0 rgba(255,255,255,.55) inset,0 -6px 10px rgba(150,30,0,.25) inset,0 14px 20px -8px rgba(232,69,31,.7)}
+.perks h3{margin:2px 0 4px;font-size:1.08rem}
+.perks p{margin:0;font-size:.95rem;line-height:1.7}
+@media (min-width:861px){
+  .why-grid{grid-template-columns:1fr 1fr;grid-template-areas:"head media" "perks media";grid-template-rows:auto 1fr;align-items:start}
+  .why-media .ph.img{aspect-ratio:1/1}
+}
+
+/* ---------- 行銷雙引擎：一暖一暗，形成對比 ---------- */
+.engines{gap:18px}
+.engines .card{display:flex;flex-direction:column;padding:32px 26px 28px;border-radius:36px;color:#fff;border-color:transparent}
+.engines .card:first-child{background:var(--flow);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 40px 60px -34px rgba(232,69,31,.75)}
+.engines .card:last-child{background:radial-gradient(70% 60% at 100% 0%,rgba(255,106,61,.3),transparent 60%),linear-gradient(160deg,#2c2527,#151113);box-shadow:0 1px 0 rgba(255,255,255,.1) inset,0 40px 60px -34px rgba(20,10,8,.8)}
+.engines h3{font-size:1.3rem;color:#fff;margin-bottom:.8em}
+.engines .list{gap:12px}
+.engines .list li:before{background:#fff}
+.engines .more{color:#fff}
+.engines .card>p:last-child{margin:auto 0 0;padding-top:18px}
+.preview .engines .card:first-child .ph.t{background:rgba(255,255,255,.22);color:#fff}
+.preview .engines .card:last-child .ph.t{background:rgba(255,255,255,.1);color:#ffd3bb}
+.preview .engines .card:last-child .ph.img{background:linear-gradient(135deg,#4a342d,#2e2327);color:#d6a894}
+.preview .engines .card:last-child .ph.img:before{background:rgba(255,255,255,.07)}
+
+/* ---------- 手機版專屬：垂直時間軸、橫向滑動卡片、雙欄工具 ---------- */
+@media (max-width:900px){
+  .steps{gap:0}
+  .steps li{position:relative;background:none;border:0;box-shadow:none;border-radius:0;padding:0 0 30px 66px;min-height:48px}
+  .steps li:before{position:absolute;left:0;top:0;margin:0}
+  .steps li:not(:last-child)::after{content:"";position:absolute;left:20px;top:50px;bottom:6px;width:2px;border-radius:2px;background:linear-gradient(#ff9a5c,rgba(255,138,76,.12))}
+  .steps li h3{margin:8px 0 4px}
+}
+@media (max-width:600px){
+  .rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-20px;padding:6px 20px 30px;scroll-padding-left:20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .rail::-webkit-scrollbar{display:none}
+  .rail>*{flex:0 0 78%;scroll-snap-align:start}
+  .grid:has(>.tool){grid-template-columns:repeat(2,1fr);gap:12px}
+  .tool{padding:18px 16px}
+  .tool .ph.img{width:52px;height:52px;min-height:52px;margin-bottom:10px;border-radius:16px}
+  .tool h3{font-size:1rem}
+  .tool p{font-size:.88rem;line-height:1.6}
+  .tool .btn{min-height:42px;padding:0 16px;width:100%;font-size:.92rem}
+  .sec-head{margin-bottom:22px}
+  .engines .card{padding:28px 22px 24px}
+}
 
 /* ---------- 捲動進場（由 site.js 加上 .rv / .in） ---------- */
 .rv{opacity:0;translate:0 28px}
