@@ -18,8 +18,9 @@
   --r:28px;
   --shadow:0 1px 0 rgba(255,255,255,.95) inset,0 24px 44px -24px rgba(90,45,25,.34),0 3px 8px rgba(90,45,25,.06);
   --shadow-up:0 1px 0 #fff inset,0 36px 56px -26px rgba(90,45,25,.45),0 6px 14px rgba(90,45,25,.08);
-  --sp:clamp(48px,8vw,88px);--gap:clamp(16px,2.5vw,24px);--tab:64px;
+  --sp:clamp(48px,8vw,88px);--gap:clamp(16px,2.5vw,24px);--tab:64px;--ov:56px;
 }
+@media (max-width:900px){:root{--ov:30px}}
 @media (prefers-color-scheme:dark){:root{
   --bg:#151112;--surface:rgba(48,38,39,.78);--panel:rgba(36,28,29,.94);
   --ink:#f4ece8;--muted:#b3a59e;--line:rgba(255,255,255,.09);--edge:rgba(255,255,255,.09);
@@ -164,7 +165,7 @@ nav>ul>li.cta-li>a{margin-top:18px;border:0;border-radius:999px;background:linea
 .hero::before,.phead::before{content:"";position:absolute;z-index:-1;width:70%;aspect-ratio:1;right:-18%;top:-45%;border-radius:50%;background:radial-gradient(circle at 40% 40%,rgba(255,220,180,.75),rgba(255,120,70,0) 65%);animation:flow 14s ease-in-out infinite alternate}
 .hero::after,.phead::after{content:"";position:absolute;z-index:-1;width:60%;aspect-ratio:1;left:-14%;bottom:-50%;border-radius:50%;background:radial-gradient(circle,rgba(120,105,150,.5),rgba(120,105,150,0) 65%);animation:flow 18s ease-in-out infinite alternate-reverse}
 @keyframes flow{to{transform:translate3d(-12%,14%,0) scale(1.15)}}
-.hero{padding:52px 0 124px}
+.hero{padding:52px 0 calc(var(--ov) + 76px)}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 .hero .ph.t{margin-bottom:14px}
 .hero p.block{margin-top:6px}
@@ -175,11 +176,24 @@ nav>ul>li.cta-li>a{margin-top:18px;border:0;border-radius:999px;background:linea
 .crumb{font-size:.88rem;opacity:.92;margin-bottom:14px}
 .crumb a{text-decoration:underline;text-underline-offset:3px}
 .crumb.muted{opacity:1;text-shadow:none}
-@media (max-width:860px){.hero-grid{grid-template-columns:1fr;gap:28px}}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr;gap:48px}.hero .btns{justify-content:center;margin-bottom:4px}.hero .btn{flex:1 1 150px;max-width:190px}}
+
+.hero .btns{margin-top:30px}
+.hero .btn{min-height:54px;padding:0 34px;text-shadow:none}
+.hero .btn.white{background:linear-gradient(180deg,#fff 0%,#ffe6d6 100%);color:#5a2412;box-shadow:0 1px 0 #fff inset,0 -4px 8px rgba(226,140,100,.35) inset,0 5px 0 #e3b29a,0 20px 28px -10px rgba(110,25,0,.6)}
+.hero .btn.outline{background:linear-gradient(180deg,rgba(255,255,255,.36),rgba(255,255,255,.1));border-color:rgba(255,255,255,.75);box-shadow:0 1px 0 rgba(255,255,255,.65) inset,0 -4px 8px rgba(160,40,0,.28) inset,0 5px 0 rgba(165,52,16,.6),0 20px 28px -10px rgba(110,25,0,.55)}
+@media (hover:hover){
+  .hero .btn:hover{transform:translateY(-4px)}
+  .hero .btn.white:hover{box-shadow:0 1px 0 #fff inset,0 -4px 8px rgba(226,140,100,.35) inset,0 9px 0 #e3b29a,0 28px 32px -10px rgba(110,25,0,.6)}
+  .hero .btn.outline:hover{background:linear-gradient(180deg,rgba(255,255,255,.46),rgba(255,255,255,.16));box-shadow:0 1px 0 rgba(255,255,255,.65) inset,0 -4px 8px rgba(160,40,0,.28) inset,0 9px 0 rgba(165,52,16,.6),0 28px 32px -10px rgba(110,25,0,.55)}
+}
+.hero .btn:active{transform:translateY(5px) scale(.98)}
+.hero .btn.white:active{box-shadow:0 1px 0 #fff inset,0 -2px 6px rgba(226,140,100,.3) inset,0 0 0 #e3b29a,0 6px 10px -6px rgba(110,25,0,.5)}
+.hero .btn.outline:active{box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 -2px 6px rgba(160,40,0,.25) inset,0 0 0 rgba(165,52,16,.6),0 6px 10px -6px rgba(110,25,0,.5)}
 
 /* ---------- 快速入口：浮在首屏下緣的立體磁磚 ---------- */
-.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);margin-top:-70px;position:relative}
-.tile{position:relative;overflow:hidden;background:var(--surface);border-radius:var(--r);padding:22px;box-shadow:var(--shadow);border:1px solid var(--line);display:flex;flex-direction:column;gap:6px;-webkit-tap-highlight-color:transparent;--rx:0deg;--ry:0deg;--ty:0px;transform:perspective(1000px) translateY(var(--ty)) rotateX(var(--rx)) rotateY(var(--ry));transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .35s,opacity .7s,translate .7s,scale .2s}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);margin-top:calc(var(--ov) * -1);position:relative}
+.tile{position:relative;overflow:hidden;background:var(--panel);border-radius:var(--r);padding:22px;box-shadow:var(--shadow);border:1px solid var(--line);display:flex;flex-direction:column;gap:6px;-webkit-tap-highlight-color:transparent;--rx:0deg;--ry:0deg;--ty:0px;transform:perspective(1000px) translateY(var(--ty)) rotateX(var(--rx)) rotateY(var(--ry));transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .35s,opacity .7s,translate .7s,scale .2s}
 .tile .badge{width:52px;height:52px;border-radius:18px;background:linear-gradient(145deg,#ff9a5c,#e8451f);color:#fff;display:grid;place-items:center;margin-bottom:8px;box-shadow:0 1px 0 rgba(255,255,255,.55) inset,0 -6px 10px rgba(150,30,0,.25) inset,0 14px 20px -8px rgba(232,69,31,.7)}
 .tile b{font-size:1.05rem}
 @media (max-width:900px){.quick{grid-template-columns:repeat(2,1fr)}}
@@ -244,13 +258,13 @@ nav>ul>li.cta-li>a{margin-top:18px;border:0;border-radius:999px;background:linea
 .lessons h3{margin:0 0 4px}.lessons p{margin:0}
 
 /* ---------- 廣告版位、工具卡、刊登方案 ---------- */
-.ad{position:relative;display:grid;place-items:center;text-align:center;margin-inline:auto;width:100%;background:rgba(255,255,255,.55);border:2px dashed rgba(232,69,31,.45);border-radius:24px;font-size:.92rem;padding:26px 12px;transition:transform .3s,box-shadow .3s}
+.ad{position:relative;display:grid;place-items:center;text-align:center;margin-inline:auto;width:100%;background:rgba(255,255,255,.55);border:2px dashed rgba(232,69,31,.45);border-radius:24px;font-size:.92rem;padding:44px 16px;transition:transform .3s,box-shadow .3s}
 @media (hover:hover){.ad:hover{transform:translateY(-3px);box-shadow:var(--shadow)}}
 .ad .tag{position:absolute;top:8px;left:14px;font-size:.72rem;color:var(--muted)}
-.ad.lb{max-width:970px;min-height:90px}
-.ad.rect{max-width:970px;min-height:250px}
+.ad.lb{max-width:970px;min-height:130px}
+.ad.rect{max-width:970px;min-height:290px}
 .ad.logo{min-height:84px;padding:10px}
-.adrow{padding:20px}
+.adrow{padding:36px 20px}
 @media (prefers-color-scheme:dark){.ad{background:rgba(255,255,255,.04)}}
 .tool .ph.img{width:64px;min-height:64px;height:64px;padding:4px;font-size:.7rem;margin-bottom:14px;border-radius:18px}
 .tool .btn{margin-top:6px}
