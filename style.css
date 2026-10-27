@@ -435,3 +435,35 @@ footer.site li a{display:inline-block;padding:6px 0;transition:color .2s,transfo
   *,*::before,*::after{animation:none!important;transition:none!important}
   .rv{opacity:1;translate:none}
 }
+
+/* ---------- 文章系統（articles-render.js 使用） ---------- */
+.tag{display:inline-block;padding:2px 12px;border-radius:999px;background:#ffe3d6;color:#b8381a;font-size:.8rem;line-height:1.7;font-weight:500}
+@media (prefers-color-scheme:dark){.tag{background:#4a2d22;color:#ffb59b}}
+.thumb{overflow:hidden}
+.thumb img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+@media (hover:hover){.thumb img{transition:transform .5s}a.card:hover .thumb img{transform:scale(1.05)}}
+.card .sum{margin:0 0 12px;color:var(--muted);font-size:.95rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.lessons .sum{margin:0;color:var(--muted)}
+.card.empty,.lessons .empty{opacity:.6;pointer-events:none}
+.pager:empty{display:none}
+.pager{flex-wrap:wrap;align-items:center}
+.pager .chip{min-width:44px;justify-content:center;padding:0 14px}
+.post .lead{font-size:1.1rem;color:var(--muted)}
+.post .cover{margin:24px 0}
+.post .cover img,.post-body img{display:block;width:100%;height:auto;border-radius:22px;box-shadow:var(--shadow-up)}
+.post-body{margin-top:28px}
+.post-body h2{font-size:clamp(1.3rem,3.4vw,1.7rem)}
+.post-body h3{margin-top:1.4em}
+.post-body ul,.post-body ol{padding-left:1.4em;margin:0 0 1.2em;display:grid;gap:6px}
+.post-body blockquote{margin:0 0 1.2em;padding:14px 20px;border-left:4px solid var(--accent);background:var(--tint);border-radius:0 18px 18px 0}
+.post-body figure{margin:24px 0}
+.post-body figcaption{margin-top:8px;font-size:.88rem;color:var(--muted);text-align:center}
+.post-body a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.post-body hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+.seriesbox{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 20px;margin:0 0 8px}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);margin:40px 0 28px}
+.pn a{display:block;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:16px 20px;box-shadow:var(--shadow);transition:transform .2s}
+.pn a small{display:block;color:var(--muted)}
+.pn .nextn{text-align:right}
+@media (hover:hover){.pn a:hover{transform:translateY(-3px)}}
+@media (max-width:600px){.pn{grid-template-columns:1fr}.pn .nextn{text-align:left}}

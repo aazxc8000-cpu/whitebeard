@@ -10,6 +10,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="articles-data.js" defer></script>
+<script src="articles-render.js" defer></script>
 <script src="site.js" defer></script>
 </head>
 <body>
@@ -26,7 +28,7 @@
 <section class="sec alt"><div class="wrap"><div class="sec-head"><div><h2>自己管理，還是交給代管？</h2></div></div><div class="grid g2"><div class="card"><h3>自己管理</h3><p class="ph block">費用較低、設定彈性大，但備份、更新、資安與障礙排除都得自己負責，適合願意學習的人。</p></div><div class="card"><h3>交給代管</h3><p class="ph block">多一筆服務費，換來省下的時間，以及出事時有人處理。要先確認服務範圍，避免以為有包、其實沒有。</p></div></div></div></section>
 <section class="sec"><div class="wrap"><div class="sec-head"><div><h2>選主機或簽代管前，先確認這六件事</h2></div></div><div class="card"><ul class="list" style="margin:0"><li>主機與網域帳號登記在誰名下？建議由你自己持有。</li><li>備份多久一次、保留幾天？還原要不要另外收費？</li><li>資源規格（儲存空間、流量、資料庫與 PHP 版本）夠用嗎？</li><li>網站出問題時，回應時間與聯絡管道是什麼？</li><li>續約價格是多少？升級方案的條件是什麼？</li><li>想搬家時，能不能完整匯出網站檔案與資料？</li></ul></div><div class="note"><b>小提醒：</b>初期優惠價與續約價常常不同，比價時請連同續約價一起看。</div></div></section>
 <section class="sec alt"><div class="wrap"><div class="sec-head"><div><h2>常見問題</h2></div></div><div class="faq"><details><summary>網域和主機要買同一家嗎？</summary><p class="ph block">不一定。許多人會分開管理，這樣之後換主機時，網域仍在自己手上，彈性比較大。</p></details><details><summary>網站變慢，一定是主機的問題嗎？</summary><p class="ph block">不一定。圖片過大、外掛太多或沒有啟用快取，也都會拖慢速度。先檢查網站本身，再考慮升級主機。</p></details><details><summary>機房該選台灣還是國外？</summary><p class="ph block">以訪客所在地為主要考量。訪客多在台灣，選擇台灣或鄰近亞洲的機房，連線延遲通常比較低。</p></details><details><summary>換主機會影響 SEO 排名嗎？</summary><p class="ph block">只要網址維持不變、搬家過程沒有長時間中斷，影響通常很有限。搬遷前務必先完整備份。</p></details></div></div></section>
-<section class="sec"><div class="wrap"><div class="sec-head"><div><h2>相關文章</h2></div><a class="more" href="articles.html">更多文章</a></div><div class="grid g4"><a class="card media" href="#"><div class="ph img" style="aspect-ratio:3/2">【文章封面 900×600】</div><div class="body"><p class="meta"><span class="ph t">【分類】</span><span class="ph t">【日期】</span></p><h3>【文章標題】</h3><p class="ph block">【文章摘要 40～60 字】</p></div></a><a class="card media" href="#"><div class="ph img" style="aspect-ratio:3/2">【文章封面 900×600】</div><div class="body"><p class="meta"><span class="ph t">【分類】</span><span class="ph t">【日期】</span></p><h3>【文章標題】</h3><p class="ph block">【文章摘要 40～60 字】</p></div></a><a class="card media" href="#"><div class="ph img" style="aspect-ratio:3/2">【文章封面 900×600】</div><div class="body"><p class="meta"><span class="ph t">【分類】</span><span class="ph t">【日期】</span></p><h3>【文章標題】</h3><p class="ph block">【文章摘要 40～60 字】</p></div></a><a class="card media" href="#"><div class="ph img" style="aspect-ratio:3/2">【文章封面 900×600】</div><div class="body"><p class="meta"><span class="ph t">【分類】</span><span class="ph t">【日期】</span></p><h3>【文章標題】</h3><p class="ph block">【文章摘要 40～60 字】</p></div></a></div></div></section>
+<section class="sec"><div class="wrap"><div class="sec-head"><div><h2>相關文章</h2></div><a class="more" href="articles.html">更多文章</a></div><div class="grid g4" data-articles="latest" data-limit="4" data-category="主機代管服務" data-hide-empty></div></div></section>
 </main>
 <footer class="site"><div class="wrap fgrid">
  <div><h3 style="font-size:1.4rem">白鬍子</h3><p class="ph block">白鬍子用白話教學，帶你從零學會自架網站與數位行銷，把網站經營成長期事業。</p><ul><li><a href="【Facebook】">Facebook</a></li><li><a href="【YouTube】">YouTube</a></li><li><a href="【Instagram】">Instagram</a></li></ul></div>

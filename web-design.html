@@ -10,6 +10,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="articles-data.js" defer></script>
+<script src="articles-render.js" defer></script>
 <script src="site.js" defer></script>
 </head>
 <body>
@@ -22,7 +24,7 @@
 <section class="phead"><div class="wrap"><p class="crumb"><a href="index.html">首頁</a> / 網頁設計</p><h1>網頁設計</h1><p class="ph block">【頁面說明：一句話介紹這個頁面】</p></div></section>
 <section class="sec"><div class="wrap"><div class="sec-head"><div><h2>選擇主題</h2></div></div><div class="grid g3"><a class="card media" href="custom-design.html"><div class="ph img" style="aspect-ratio:3/2">【主題圖 900×600】</div><div class="body"><h3>客製網頁設計</h3><p class="ph block">【主題簡介 1～2 句】</p><span class="go">進入主題</span></div></a><a class="card media" href="template-sites.html"><div class="ph img" style="aspect-ratio:3/2">【主題圖 900×600】</div><div class="body"><h3>小資套版網站</h3><p class="ph block">【主題簡介 1～2 句】</p><span class="go">進入主題</span></div></a><a class="card media" href="hosting.html"><div class="ph img" style="aspect-ratio:3/2">【主題圖 900×600】</div><div class="body"><h3>主機代管服務</h3><p class="ph block">【主題簡介 1～2 句】</p><span class="go">進入主題</span></div></a></div></div></section>
 <section class="sec alt"><div class="wrap"><div class="split"><div class="ph img" style="aspect-ratio:4/3">【主圖 1200×900】</div><div><h2>【網頁設計從哪裡開始？】</h2><p class="ph block">【介紹 2～3 句】</p><p class="ph block">【適合誰看／能學到什麼】</p></div></div></div></section>
-<section class="sec"><div class="wrap"><div class="sec-head"><div><h2>相關文章</h2></div><a class="more" href="articles.html">更多文章</a></div><div class="grid g4"><a class="card media" href="#"><div class="ph img" style="aspect-ratio:3/2">【文章封面 900×600】</div><div class="body"><p class="meta"><span class="ph t">【分類】</span><span class="ph t">【日期】</span></p><h3>【文章標題】</h3><p class="ph block">【文章摘要 40～60 字】</p></div></a><a class="card media" href="#"><div class="ph img" style="aspect-ratio:3/2">【文章封面 900×600】</div><div class="body"><p class="meta"><span class="ph t">【分類】</span><span class="ph t">【日期】</span></p><h3>【文章標題】</h3><p class="ph block">【文章摘要 40～60 字】</p></div></a><a class="card media" href="#"><div class="ph img" style="aspect-ratio:3/2">【文章封面 900×600】</div><div class="body"><p class="meta"><span class="ph t">【分類】</span><span class="ph t">【日期】</span></p><h3>【文章標題】</h3><p class="ph block">【文章摘要 40～60 字】</p></div></a><a class="card media" href="#"><div class="ph img" style="aspect-ratio:3/2">【文章封面 900×600】</div><div class="body"><p class="meta"><span class="ph t">【分類】</span><span class="ph t">【日期】</span></p><h3>【文章標題】</h3><p class="ph block">【文章摘要 40～60 字】</p></div></a></div></div></section>
+<section class="sec"><div class="wrap"><div class="sec-head"><div><h2>相關文章</h2></div><a class="more" href="articles.html">更多文章</a></div><div class="grid g4" data-articles="latest" data-limit="4" data-category="客製網頁設計|小資套版網站|主機代管服務" data-hide-empty></div></div></section>
 </main>
 <footer class="site"><div class="wrap fgrid">
  <div><h3 style="font-size:1.4rem">白鬍子</h3><p class="ph block">【網站一句話介紹】</p><ul><li><a href="【Facebook】">Facebook</a></li><li><a href="【YouTube】">YouTube</a></li><li><a href="【Instagram】">Instagram</a></li></ul></div>
