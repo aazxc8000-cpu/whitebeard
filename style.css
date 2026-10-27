@@ -370,6 +370,22 @@ footer.site li a{display:inline-block;padding:6px 0;transition:color .2s,transfo
   .engines .card{padding:28px 22px 24px}
 }
 
+/* ---------- 「為什麼要學」手機版修正：圖示與標題同一行，說明文字吃滿整行 ---------- */
+.why-head h2,.why-head p{text-wrap:balance}
+.perks p{text-wrap:pretty}
+@media (max-width:600px){
+  .why-grid{gap:20px}
+  .why-media .ph.img{aspect-ratio:16/11;border-radius:30px}
+  .why-media .float{left:12px;bottom:12px;padding:8px 14px;font-size:.85rem}
+  .perks{padding:4px;border-radius:30px}
+  .perks li{grid-template-columns:44px 1fr;grid-template-areas:"ico title" "desc desc";gap:12px 14px;align-items:center;padding:18px 16px}
+  .perks li>div{display:contents}
+  .perks .ico{grid-area:ico;width:44px;height:44px;border-radius:15px}
+  .perks .ico svg{width:22px;height:22px}
+  .perks h3{grid-area:title;margin:0;font-size:1.05rem}
+  .perks p{grid-area:desc;font-size:.94rem}
+}
+
 /* ---------- 捲動進場（由 site.js 加上 .rv / .in） ---------- */
 .rv{opacity:0;translate:0 28px}
 .rv.in{opacity:1;translate:none}
