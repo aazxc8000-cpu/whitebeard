@@ -100,12 +100,17 @@ p{margin:0 0 1em;max-width:62ch}
 
 /* ---------- 頁首：懸浮玻璃膠囊 ---------- */
 header.site{position:sticky;top:0;z-index:30;padding:10px 10px 0;background:none;border:0}
-.bar{position:relative;display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px;padding:0 8px 0 24px}
+.bar{position:relative;display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px;padding:0 8px 0 9px}
 /* 玻璃效果放在偽元素上，避免 backdrop-filter 讓手機選單的 fixed 定位跑掉 */
 .bar::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:999px;background:var(--surface);-webkit-backdrop-filter:blur(22px) saturate(1.5);backdrop-filter:blur(22px) saturate(1.5);border:1px solid var(--line);box-shadow:var(--shadow);transition:box-shadow .3s}
 header.site.scrolled .bar::before{box-shadow:var(--shadow-up)}
-.brand{font-weight:900;font-size:1.35rem;letter-spacing:.02em;background:linear-gradient(120deg,#e8451f,#ff8a4c);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-flex;align-items:center;min-height:44px}
-.brand img{display:block}
+.brand{display:inline-flex;align-items:center;gap:10px;min-height:46px;font-weight:900;font-size:1.3rem;letter-spacing:.02em;-webkit-tap-highlight-color:transparent;transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.brand span{background:linear-gradient(120deg,#e8451f,#ff8a4c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand .logo{display:block;width:42px;height:42px;border-radius:50%;box-shadow:0 8px 14px -6px rgba(232,69,31,.55);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+@media (hover:hover){.brand:hover .logo{transform:rotate(-8deg) scale(1.08)}}
+.brand:active{transform:scale(.96)}
+.f-brand{display:flex;align-items:center;gap:12px;font-size:1.4rem}
+.f-brand .logo{width:40px;height:40px;border-radius:50%;display:block}
 nav ul{list-style:none;margin:0;padding:0}
 .burger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:46px;height:46px;border:1px solid var(--line);border-radius:50%;background:var(--surface);padding:0;cursor:pointer;position:relative;overflow:hidden;color:var(--ink);box-shadow:var(--shadow);transition:transform .2s}
 .burger:active{transform:scale(.92)}
