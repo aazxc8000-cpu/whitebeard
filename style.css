@@ -411,6 +411,21 @@ footer.site li a{display:inline-block;padding:6px 0;transition:color .2s,transfo
 .preview .tile .ph.t{display:block;padding:0;border-radius:0;background:none;color:var(--muted);font-size:.88rem;line-height:1.6;font-weight:400}
 .preview .engines .card .list li .ph.t{display:block;padding:0;border-radius:0;background:none;color:inherit;font-size:1rem;line-height:1.6;font-weight:500}
 
+/* ---------- 內容頁元件：頁首說明、常見問題、提示框 ---------- */
+.preview .phead .ph.block{color:rgba(255,255,255,.94)}
+.card .list{margin-bottom:0}
+.card h3+.ph.block{margin-bottom:.4em}
+.note{margin-top:var(--gap);padding:18px 22px;border-left:4px solid var(--accent);border-radius:0 22px 22px 0;background:var(--tint);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.faq{display:grid;gap:12px;max-width:820px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:0 22px;transition:box-shadow .3s}
+.faq details[open]{box-shadow:var(--shadow-up)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:58px;padding:14px 0;font-weight:700;-webkit-tap-highlight-color:transparent}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:9px;height:9px;border:solid var(--accent);border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translateY(-2px);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(225deg) translateY(-2px)}
+.faq details>p{margin:0 0 18px;max-width:none}
+.faq summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px;border-radius:12px}
+
 /* ---------- 捲動進場（由 site.js 加上 .rv / .in） ---------- */
 .rv{opacity:0;translate:0 28px}
 .rv.in{opacity:1;translate:none}
