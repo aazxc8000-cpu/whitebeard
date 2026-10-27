@@ -407,6 +407,10 @@ footer.site li a{display:inline-block;padding:6px 0;transition:color .2s,transfo
   .why-media img{flex:1;min-width:0;width:100%;object-fit:cover;border-radius:34px}
 }
 
+/* ---------- 文案較長時：入口說明與雙引擎重點改成一般文字，不用膠囊 ---------- */
+.preview .tile .ph.t{display:block;padding:0;border-radius:0;background:none;color:var(--muted);font-size:.88rem;line-height:1.6;font-weight:400}
+.preview .engines .card .list li .ph.t{display:block;padding:0;border-radius:0;background:none;color:inherit;font-size:1rem;line-height:1.6;font-weight:500}
+
 /* ---------- 捲動進場（由 site.js 加上 .rv / .in） ---------- */
 .rv{opacity:0;translate:0 28px}
 .rv.in{opacity:1;translate:none}
