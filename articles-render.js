@@ -70,8 +70,7 @@
     var items = latest();
     if (cat) {
       var cats = cat.split('|');
-      items = items.filter(function (a) { return cats.indexOf(a.category) > -1; })
-        .concat(items.filter(function (a) { return cats.indexOf(a.category) < 0; }));
+      items = items.filter(function (a) { return cats.indexOf(a.category) > -1; });
     }
     var total = items.length, page = 1, pages = 1, slots = limit || per, html = '';
     if (per) {
@@ -185,3 +184,5 @@
     }
   }
 })();
+
+
