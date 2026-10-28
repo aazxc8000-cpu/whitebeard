@@ -50,7 +50,7 @@ window.ARTICLES_DATA = {
   site: {
     name: "白鬍子",
     author: "白鬍子",
-    showEmptySlots: false     // 沒有正式文章時不顯示空白卡
+    showEmptySlots: true      // 文章尚未填入時顯示卡片版位
   },
 
   series: {
@@ -60,5 +60,6 @@ window.ARTICLES_DATA = {
 
   articles: []
 };
+
 
 
