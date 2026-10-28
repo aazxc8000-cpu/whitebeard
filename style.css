@@ -375,6 +375,20 @@ footer.site li a{display:inline-block;padding:6px 0;transition:color .2s,transfo
   .engines .card{padding:28px 22px 24px}
 }
 
+/* ---------- 首頁與文章頁：手機版收緊卡片和廣告區塊距離 ---------- */
+@media (max-width:600px){
+  .page-home .sec{padding-block:32px}
+  .page-home .sec-head{margin-bottom:16px}
+  .page-home .rail{gap:12px;padding-bottom:18px}
+  .page-home .adrow{padding-block:14px}
+  .page-home .adrow+.sec{padding-top:30px}
+
+  .page-articles .adrow{padding-block:14px}
+  .page-articles #top>.sec{padding-block:28px}
+  .page-articles .chips{gap:8px;margin-bottom:16px}
+  .page-articles [data-articles="all"]{gap:14px}
+}
+
 /* ---------- 「為什麼要學」手機版修正：圖示與標題同一行，說明文字吃滿整行 ---------- */
 .why-head h2,.why-head p{text-wrap:balance}
 .perks p{text-wrap:pretty}
