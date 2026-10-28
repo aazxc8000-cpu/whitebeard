@@ -377,6 +377,26 @@ footer.site li a{display:inline-block;padding:6px 0;transition:color .2s,transfo
 
 /* ---------- 首頁與文章頁：手機版收緊卡片和廣告區塊距離 ---------- */
 @media (max-width:600px){
+  /* 全站內容頁：減少區塊留白、讓卡片文字更集中 */
+  .sec{padding-block:36px}
+  .sec-head{margin-bottom:18px}
+  .grid{gap:14px}
+  .card{padding:20px}
+  .card.media .body{padding:16px 18px 20px}
+  .meta{gap:5px;margin-bottom:6px}
+  .chips{gap:8px;margin-bottom:18px}
+  .adrow{padding:16px 14px}
+  .ad.lb{min-height:136px}
+  .ad.rect{min-height:184px}
+  .phead{padding:26px 0 40px}
+
+  /* 首頁輪播與首屏：控制圖片和文字的垂直佔位 */
+  .hero{padding:34px 0 40px}
+  .hero-grid{gap:28px}
+  .hero .btns{margin-top:20px}
+  .slider{aspect-ratio:4/3}
+
+  /* 首頁、文章頁已各自定義更精準的間距 */
   .page-home .sec{padding-block:32px}
   .page-home .sec-head{margin-bottom:16px}
   .page-home .rail{gap:12px;padding-bottom:18px}
